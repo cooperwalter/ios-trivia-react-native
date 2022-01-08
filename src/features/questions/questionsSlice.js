@@ -20,6 +20,6 @@ const questionsSlice = createSlice({
 // Extract the action creators object and the reducer
 const { actions, reducer } = questionsSlice;
 // Extract and export each action creator by name
-export const { createPost, updatePost, deletePost } = actions;
+export const { questionAnswered, nextQuestionRequested, restart } = actions;
 // Export the reducer, either as a default or named export
 export default reducer;
