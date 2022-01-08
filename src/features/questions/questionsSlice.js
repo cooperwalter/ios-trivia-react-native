@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import questionsData from "./questionsData";
+import * as R from "ramda";
+import _ from "lodash";
+
+/* Question Slice */
 const questionsSlice = createSlice({
   name: "questions",
   initialState: {
-    questions: questionsData,
+    questions: {
+      byId: _.keyBy(questionsData, "id"),
+      allIds: R.map(({ id }) => id, questionsData),
+    },
     currentQuestionId: questionsData[0].id,
     answered: {
       correctIds: [],
