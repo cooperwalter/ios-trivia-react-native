@@ -2,7 +2,9 @@ import { useStore } from "react-redux";
 
 const StateLogger = () => {
   const store = useStore();
-  console.log("store", JSON.stringify(store.getState(), undefined, 2));
+  store.subscribe((state) =>
+    console.log("store", JSON.stringify(state, undefined, 2))
+  );
   return null;
 };
 
