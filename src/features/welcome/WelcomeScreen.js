@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { useDispatch } from "react-redux";
+import { Icon } from "react-native-elements";
 import { styles as s } from "react-native-style-tachyons";
 import { quizStarted } from "../questions/questionsSlice";
 import Screen from "../../common/Screen";
@@ -17,7 +18,8 @@ const WelcomeScreen = () => {
       <View style={[s.w100p]}>
         <Image source={logo} style={[s.w4, s.h4, s.asc]} />
         <Text h2 style={[s.mv3]}>
-          Learn the Delightful History of iOS and the iPhone
+          Learn the Delightful History of iOS{" "}
+          <Icon name="apple1" type="ant-design" size={30} /> and the iPhone 📱
         </Text>
       </View>
       <View style={[s.flx1, s.w100p, s.aic, s.jcc]}>
