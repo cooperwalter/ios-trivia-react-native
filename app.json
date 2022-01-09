@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cooperawalter.ios-trivia-react-native"
     },
     "android": {
       "adaptiveIcon": {
