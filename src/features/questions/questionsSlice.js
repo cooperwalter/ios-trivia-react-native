@@ -18,7 +18,16 @@ const questionsSlice = createSlice({
     },
   },
   reducers: {
-    questionAnswered(state, action) {},
+    questionAnswered(state, action) {
+      const { payload: selectedIndex } = action;
+      const { currentQuestionId, questions, answered } = state;
+      const currentQuestion = questions.byId[currentQuestionId];
+
+      answered.allIds.push(currentQuestionId);
+      if (selectedIndex === currentQuestion.correctIndex) {
+        answered.correctIds.push(currentQuestionId);
+      }
+    },
     nextQuestionRequested(state, action) {},
     restart(state, action) {},
   },

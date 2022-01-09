@@ -1,7 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import * as R from "ramda";
 import { selectCurrentQuestion, questionAnswered } from "./questionsSlice";
 
 import { Text, Button } from "react-native-elements";
@@ -10,7 +9,6 @@ function QuestionScreen() {
   const currentQuestion = useSelector(selectCurrentQuestion);
   const dispatch = useDispatch();
   const { prompt, answers } = currentQuestion;
-  console.log(currentQuestion);
   const onSelect = (selectedIndex) => () =>
     dispatch(questionAnswered(selectedIndex));
   return (
