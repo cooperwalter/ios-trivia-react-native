@@ -1,14 +1,16 @@
 import * as React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useSelector } from "react-redux";
+import { selectStarted } from "./features/questions/questionsSlice";
 import QuestionScreen from "./features/questions/QuestionScreen";
+import WelcomeScreen from "./features/welcome/WelcomeScreen";
 
-const Stack = createNativeStackNavigator();
 function AppNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Question" component={QuestionScreen} />
-    </Stack.Navigator>
-  );
+  const started = useSelector(selectStarted);
+  if (started) {
+    return <QuestionScreen />;
+  }
+
+  return <WelcomeScreen />;
 }
 
 export default AppNavigator;

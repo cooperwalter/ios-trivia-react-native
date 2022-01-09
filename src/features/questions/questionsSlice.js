@@ -7,6 +7,7 @@ import _ from "lodash";
 const questionsSlice = createSlice({
   name: "questions",
   initialState: {
+    started: false,
     questions: {
       byId: _.keyBy(questionsData, "id"),
       allIds: R.map(({ id }) => id, questionsData),
@@ -18,6 +19,9 @@ const questionsSlice = createSlice({
     },
   },
   reducers: {
+    quizStarted(state, _action) {
+      state.started = true;
+    },
     questionAnswered(state, action) {
       const { payload: selectedIndex } = action;
       const { currentQuestionId, questions, answered } = state;
@@ -54,10 +58,15 @@ export const selectCurrentQuestion = createSelector(
 export const selectIsAnswered = createSelector([selectQuestions], (state) =>
   state.answered.allIds.includes(state.currentQuestionId)
 );
+export const selectStarted = createSelector(
+  [selectQuestions],
+  (state) => state.started
+);
 
 // Extract the action creators object and the reducer
 const { actions, reducer } = questionsSlice;
 // Extract and export each action creator by name
-export const { questionAnswered, nextQuestionRequested, restart } = actions;
+export const { quizStarted, questionAnswered, nextQuestionRequested, restart } =
+  actions;
 // Export the reducer, either as a default or named export
 export default reducer;
