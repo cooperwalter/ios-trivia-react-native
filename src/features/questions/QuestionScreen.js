@@ -9,6 +9,7 @@ import {
   selectCurrentQuestion,
   selectIsAnswered,
   questionAnswered,
+  nextQuestionRequested,
 } from "./questionsSlice";
 import AnswerButton from "./AnswerButton";
 
@@ -19,6 +20,8 @@ function QuestionScreen() {
   const { prompt, answers } = currentQuestion;
   const onSelect = (selectedIndex) => () =>
     dispatch(questionAnswered(selectedIndex));
+
+  const onNext = () => dispatch(nextQuestionRequested());
   return (
     <Screen>
       <SafeAreaView style={[s.flx1, s.aic]}>
@@ -35,6 +38,7 @@ function QuestionScreen() {
             title="Next"
             containerStyle={[s.w100p, s.br5, !isAnswered && s.o_0]}
             disabled={!isAnswered}
+            onPress={onNext}
           />
         </View>
       </SafeAreaView>

@@ -28,7 +28,17 @@ const questionsSlice = createSlice({
         answered.correctIds.push(currentQuestionId);
       }
     },
-    nextQuestionRequested(state, action) {},
+    nextQuestionRequested(state, _action) {
+      const {
+        questions: { allIds: allQuestionIds },
+        answered: { allIds: allAnsweredIds },
+      } = state;
+      const unanswered = _.difference(allQuestionIds, allAnsweredIds);
+      if (unanswered.length > 0) {
+        state.currentQuestionId = unanswered[0];
+      }
+      // TODO: Do something if run out of unanswered questions
+    },
     restart(state, action) {},
   },
 });
