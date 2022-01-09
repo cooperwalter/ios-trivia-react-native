@@ -3,9 +3,9 @@ export default [
     id: "1",
     prompt: "The first question prompt",
     answers: [
-      { text: "Incorrect" },
-      { text: "I'm Correct!" },
-      { text: "Incorrect" },
+      { text: "Incorrect0" },
+      { text: "I'm Correct!1" },
+      { text: "Incorrect2" },
     ],
     correctIndex: 1,
     details: {
