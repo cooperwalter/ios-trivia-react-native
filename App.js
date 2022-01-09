@@ -2,6 +2,22 @@ import { StyleSheet } from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import NativeTachyons from "react-native-style-tachyons";
+import {
+  useFonts,
+  PlayfairDisplay_400Regular,
+  PlayfairDisplay_500Medium,
+  PlayfairDisplay_600SemiBold,
+  PlayfairDisplay_700Bold,
+  PlayfairDisplay_800ExtraBold,
+  PlayfairDisplay_900Black,
+  PlayfairDisplay_400Regular_Italic,
+  PlayfairDisplay_500Medium_Italic,
+  PlayfairDisplay_600SemiBold_Italic,
+  PlayfairDisplay_700Bold_Italic,
+  PlayfairDisplay_800ExtraBold_Italic,
+  PlayfairDisplay_900Black_Italic,
+} from "@expo-google-fonts/playfair-display";
+import AppLoading from "expo-app-loading";
 import _ from "lodash";
 import store from "./src/store";
 import AppNavigator from "./src/Nav";
@@ -43,6 +59,24 @@ NativeTachyons.build(
 );
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    PlayfairDisplay_400Regular,
+    PlayfairDisplay_500Medium,
+    PlayfairDisplay_600SemiBold,
+    PlayfairDisplay_700Bold,
+    PlayfairDisplay_800ExtraBold,
+    PlayfairDisplay_900Black,
+    PlayfairDisplay_400Regular_Italic,
+    PlayfairDisplay_500Medium_Italic,
+    PlayfairDisplay_600SemiBold_Italic,
+    PlayfairDisplay_700Bold_Italic,
+    PlayfairDisplay_800ExtraBold_Italic,
+    PlayfairDisplay_900Black_Italic,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <Provider store={store}>
       <NavigationContainer>
