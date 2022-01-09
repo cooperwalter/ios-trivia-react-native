@@ -2,9 +2,27 @@ import { StyleSheet } from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import NativeTachyons from "react-native-style-tachyons";
+import _ from "lodash";
 import store from "./src/store";
 import AppNavigator from "./src/Nav";
 import StateLogger from "./src/StateLogger";
+
+const buildWidthStyles = () => {
+  return _.range(0, 101).reduce(
+    (styles, width) => ({ ...styles, [`w${width}p`]: { width: `${width}%` } }),
+    {}
+  );
+};
+
+const buildFlexStyles = () => {
+  return _.range(0, 10, 0.5).reduce(
+    (styles, flexAmount) => ({
+      ...styles,
+      [`flx${flexAmount}`]: { flex: flexAmount },
+    }),
+    {}
+  );
+};
 
 NativeTachyons.build(
   {
@@ -15,17 +33,10 @@ NativeTachyons.build(
       },
     },
     customStyles: {
-      w100p: {
-        width: "100%",
-      },
-      flx1: {
-        flex: 1,
-      },
-      flx2: {
-        flex: 2,
-      },
-      flx3: {
-        flex: 3,
+      ...buildWidthStyles(),
+      ...buildFlexStyles(),
+      o_0: {
+        opacity: 0,
       },
     },
   },
