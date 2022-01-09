@@ -1,8 +1,9 @@
 import Screen from "../../common/Screen";
 import { useDispatch } from "react-redux";
-import { Text, Button } from "react-native-elements";
 import { styles as s } from "react-native-style-tachyons";
 import { restart } from "./questionsSlice";
+import Text from "../../common/Text";
+import Button from "../../common/Button";
 
 const OutOfQuestionsScreen = () => {
   const dispatch = useDispatch();

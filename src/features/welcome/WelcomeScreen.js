@@ -1,10 +1,11 @@
 import { View } from "react-native";
 import { useDispatch } from "react-redux";
-import { Text, Button } from "react-native-elements";
 import { styles as s } from "react-native-style-tachyons";
 import { quizStarted } from "../questions/questionsSlice";
 import Screen from "../../common/Screen";
 import Image from "../../common/Image";
+import Text from "../../common/Text";
+import Button from "../../common/Button";
 
 const logo = require("../../../assets/logo/logo_transparent_background.png");
 

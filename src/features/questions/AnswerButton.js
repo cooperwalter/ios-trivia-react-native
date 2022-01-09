@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styles as s } from "react-native-style-tachyons";
 
-import { Button } from "react-native-elements";
+import Button from "../../common/Button";
 
 const AnswerButton = (props) => {
   return (

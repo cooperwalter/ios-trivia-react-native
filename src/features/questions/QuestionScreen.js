@@ -1,6 +1,5 @@
 import * as React from "react";
 import { View } from "react-native";
-import { Button, Text } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
 import { styles as s } from "react-native-style-tachyons";
 import Screen from "../../common/Screen";
@@ -11,6 +10,8 @@ import {
   nextQuestionRequested,
 } from "./questionsSlice";
 import AnswerButton from "./AnswerButton";
+import Button from "../../common/Button";
+import Text from "../../common/Text";
 
 function QuestionScreen() {
   const currentQuestion = useSelector(selectCurrentQuestion);
