@@ -1,11 +1,11 @@
-import { View } from "react-native";
 import { styles as s } from "react-native-style-tachyons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Screen = ({ children, style = [], ...rest }) => {
   return (
-    <View style={[s.bg_near_white, s.flx1, ...style]} {...rest}>
+    <SafeAreaView style={[s.bg_near_white, s.flx1, ...style]} {...rest}>
       {children}
-    </View>
+    </SafeAreaView>
   );
 };
 
