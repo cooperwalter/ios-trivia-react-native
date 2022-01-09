@@ -31,7 +31,12 @@ function QuestionScreen() {
         <View style={[s.aic, s.w80p, s.flx2, s.jcsb]}>
           <View style={[s.aic, s.w100p]}>
             {answers.map(({ text }, index) => (
-              <AnswerButton title={text} key={text} onPress={onSelect(index)} />
+              <AnswerButton
+                title={text}
+                key={text}
+                onPress={onSelect(index)}
+                disabled={isAnswered}
+              />
             ))}
           </View>
           <Button
