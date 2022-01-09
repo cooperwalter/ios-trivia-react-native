@@ -5,7 +5,6 @@ import NativeTachyons from "react-native-style-tachyons";
 import _ from "lodash";
 import store from "./src/store";
 import AppNavigator from "./src/Nav";
-import StateLogger from "./src/StateLogger";
 
 const buildWidthStyles = () => {
   return _.range(0, 101).reduce(
@@ -48,8 +47,6 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <AppNavigator />
-        {/* Hack to log redux store state to console b/c can't get debuggers to work */}
-        {process.env.NODE_ENV === "development" ? <StateLogger /> : null}
       </NavigationContainer>
     </Provider>
   );
