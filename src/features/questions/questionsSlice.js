@@ -3,21 +3,23 @@ import questionsData from "./questionsData";
 import * as R from "ramda";
 import _ from "lodash";
 
+const INITIAL_STATE = {
+  started: false,
+  questions: {
+    byId: _.keyBy(questionsData, "id"),
+    allIds: R.map(({ id }) => id, questionsData),
+  },
+  currentQuestionId: questionsData[0].id,
+  answered: {
+    correctIds: [],
+    allIds: [],
+  },
+};
+
 /* Question Slice */
 const questionsSlice = createSlice({
   name: "questions",
-  initialState: {
-    started: false,
-    questions: {
-      byId: _.keyBy(questionsData, "id"),
-      allIds: R.map(({ id }) => id, questionsData),
-    },
-    currentQuestionId: questionsData[0].id,
-    answered: {
-      correctIds: [],
-      allIds: [],
-    },
-  },
+  initialState: INITIAL_STATE,
   reducers: {
     quizStarted(state, _action) {
       state.started = true;
@@ -41,26 +43,36 @@ const questionsSlice = createSlice({
       if (unanswered.length > 0) {
         state.currentQuestionId = unanswered[0];
       }
-      // TODO: Do something if run out of unanswered questions
     },
-    restart(state, action) {},
+    restart(_state, _action) {
+      return { ...INITIAL_STATE, started: true };
+    },
   },
 });
 
 /* Input Selectors */
-const selectQuestions = (state) => state.questions;
+const selectQuestionsState = (state) => state.questions;
+const selectQuestions = (state) => selectQuestionsState(state).questions;
+const selectCurrentQuestionId = (state) =>
+  selectQuestionsState(state).currentQuestionId;
+const selectAnswered = (state) => selectQuestionsState(state).answered;
 
 /* Output Selectors */
 export const selectCurrentQuestion = createSelector(
-  [selectQuestions],
+  [selectQuestionsState],
   (state) => state.questions.byId[state.currentQuestionId]
 );
-export const selectIsAnswered = createSelector([selectQuestions], (state) =>
-  state.answered.allIds.includes(state.currentQuestionId)
+export const selectIsAnswered = createSelector(
+  [selectAnswered, selectCurrentQuestionId],
+  (answered, currentQuestionId) => answered.allIds.includes(currentQuestionId)
 );
 export const selectStarted = createSelector(
-  [selectQuestions],
+  [selectQuestionsState],
   (state) => state.started
+);
+export const selectedOutOfQuestions = createSelector(
+  [selectQuestions, selectAnswered],
+  (questions, answered) => questions.allIds.length === answered.allIds.length
 );
 
 // Extract the action creators object and the reducer
