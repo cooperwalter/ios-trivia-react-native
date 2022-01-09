@@ -1,22 +1,24 @@
 import * as React from "react";
 import { View } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import * as R from "ramda";
-import { selectCurrentQuestion } from "./questionsSlice";
+import { selectCurrentQuestion, questionAnswered } from "./questionsSlice";
 
 import { Text, Button } from "react-native-elements";
 
 function QuestionScreen() {
   const currentQuestion = useSelector(selectCurrentQuestion);
+  const dispatch = useDispatch();
   const { prompt, answers } = currentQuestion;
   console.log(currentQuestion);
+  const onSelect = (selectedIndex) => () =>
+    dispatch(questionAnswered(selectedIndex));
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text h1>{prompt}</Text>
-      {R.pipe(
-        R.map(({ text }) => text),
-        R.map((text) => <Button key={text} title={text} />)
-      )(answers)}
+      {answers.map(({ text }, index) => (
+        <Button title={text} key={text} onPress={onSelect(index)} />
+      ))}
     </View>
   );
 }
