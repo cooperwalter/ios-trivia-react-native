@@ -41,6 +41,9 @@ export const selectCurrentQuestion = createSelector(
   [selectQuestions],
   (state) => state.questions.byId[state.currentQuestionId]
 );
+export const selectIsAnswered = createSelector([selectQuestions], (state) =>
+  state.answered.allIds.includes(state.currentQuestionId)
+);
 
 // Extract the action creators object and the reducer
 const { actions, reducer } = questionsSlice;
