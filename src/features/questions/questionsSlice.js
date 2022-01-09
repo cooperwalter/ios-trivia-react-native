@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 import questionsData from "./questionsData";
 import * as R from "ramda";
 import _ from "lodash";
@@ -23,6 +23,15 @@ const questionsSlice = createSlice({
     restart(state, action) {},
   },
 });
+
+/* Input Selectors */
+const selectQuestions = (state) => state.questions;
+
+/* Output Selectors */
+export const selectCurrentQuestion = createSelector(
+  [selectQuestions],
+  (state) => state.questions.byId[state.currentQuestionId]
+);
 
 // Extract the action creators object and the reducer
 const { actions, reducer } = questionsSlice;
