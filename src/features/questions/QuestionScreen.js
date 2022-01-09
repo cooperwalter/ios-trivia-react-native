@@ -22,11 +22,11 @@ function QuestionScreen() {
 
   const onNext = () => dispatch(nextQuestionRequested());
   return (
-    <Screen style={[s.aic]}>
+    <Screen style={[s.aic, s.pa4]}>
       <View style={[s.flx1, s.jcc]}>
         <Text h1>{prompt}</Text>
       </View>
-      <View style={[s.aic, s.w80p, s.flx2, s.jcsb]}>
+      <View style={[s.aic, s.w100p, s.flx2, s.jcsb]}>
         <View style={[s.aic, s.w100p]}>
           {answers.map(({ text }, index) => (
             <AnswerButton
