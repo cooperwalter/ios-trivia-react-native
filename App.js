@@ -45,6 +45,8 @@ NativeTachyons.build(
       palette: {
         near_white: "#fffdfc",
         white: "#ffffff",
+        blue: "rgb(0,122,255)",
+        green: "rgb(52,199,89)",
       },
     },
     customStyles: {

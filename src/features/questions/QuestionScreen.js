@@ -11,6 +11,7 @@ import {
 } from "./questionsSlice";
 import AnswerButton from "./AnswerButton";
 import Button from "../../common/Button";
+import ActionButton from "../../common/ActionButton";
 import Text from "../../common/Text";
 
 function QuestionScreen() {
@@ -38,7 +39,7 @@ function QuestionScreen() {
             />
           ))}
         </View>
-        <Button
+        <ActionButton
           title="Next"
           containerStyle={[s.w100p, s.br5, !isAnswered && s.o_0]}
           disabled={!isAnswered}
