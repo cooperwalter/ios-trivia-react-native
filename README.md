@@ -12,4 +12,4 @@ The app logo is generated at [Tailor Brands](https://studio.tailorbrands.com/bra
 
 ## App Icon
 
-The app icon is generated at [AppIcon.co](https://appicon.co/).
+The app icon is generated at [AppIcon.co](https://appicon.co/). Just drag app logo png where indicated in generator.
