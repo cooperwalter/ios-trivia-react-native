@@ -13,3 +13,7 @@ The app logo is generated at [Tailor Brands](https://studio.tailorbrands.com/bra
 ## App Icon
 
 The app icon is generated at [AppIcon.co](https://appicon.co/). Just drag app logo png where indicated in generator.
+
+## Splash Screen
+
+Follow [Expo guide](https://docs.expo.dev/guides/splash-screens/) to create the splash screen. Use the the Sketch template provided in the guide. Change the background to the app's theme background color, and replace the placeholder with the app's logo png.
