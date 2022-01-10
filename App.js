@@ -39,6 +39,31 @@ const buildFlexStyles = () => {
   );
 };
 
+const FONT_FAMILY = "PlayfairDisplay";
+const buildFontFamilyStyles = () => {
+  const typefaces = [
+    "400Regular",
+    "500Medium",
+    "600SemiBold",
+    "700Bold",
+    "800ExtraBold",
+    "900Black",
+    "400Regular_Italic",
+    "500Medium_Italic",
+    "600SemiBold_Italic",
+    "700Bold_Italic",
+    "800ExtraBold_Italic",
+    "900Black_Italic",
+  ];
+  return typefaces.reduce(
+    (styles, typeface) => ({
+      ...styles,
+      [`font${typeface}`]: { fontFamily: `${FONT_FAMILY}_${typeface}` },
+    }),
+    {}
+  );
+};
+
 NativeTachyons.build(
   {
     colors: {
@@ -57,6 +82,7 @@ NativeTachyons.build(
     customStyles: {
       ...buildWidthStyles(),
       ...buildFlexStyles(),
+      ...buildFontFamilyStyles(),
       o_0: {
         opacity: 0,
       },
