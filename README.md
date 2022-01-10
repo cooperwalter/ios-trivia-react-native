@@ -8,4 +8,8 @@
 
 ## App Logo
 
-The app logo is generated at [Tailor Brands](https://studio.tailorbrands.com/brands/6620666336/home)
+The app logo is generated at [Tailor Brands](https://studio.tailorbrands.com/brands/6620666336/home).
+
+## App Icon
+
+The app icon is generated at [AppIcon.co](https://appicon.co/).

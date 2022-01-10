@@ -21,6 +21,7 @@ const WelcomeScreen = () => {
           Learn the Delightful History of iOS{" "}
           <Icon name="apple1" type="ant-design" size={30} /> and the iPhone 📱
         </Text>
+        <Text h4>Through trivia</Text>
       </View>
       <View style={[s.flx1, s.w100p, s.aic, s.jcc]}>
         <Button
