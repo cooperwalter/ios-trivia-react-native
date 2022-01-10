@@ -5,7 +5,7 @@ const Button = ({ titleStyle = [], buttonStyle = [], ...rest }) => {
   return (
     <RNEButton
       titleStyle={[{ fontFamily: "PlayfairDisplay_400Regular" }, ...titleStyle]}
-      buttonStyle={[s.bg_blue, ...buttonStyle]}
+      buttonStyle={[s.bg_primary, ...buttonStyle]}
       {...rest}
     />
   );

@@ -47,6 +47,11 @@ NativeTachyons.build(
         white: "#ffffff",
         blue: "rgb(0,122,255)",
         green: "rgb(52,199,89)",
+        background: "#F1F0EA",
+        primary: "#2D232E",
+        secondary: "#958B5F",
+        text: "#474448",
+        textAlternate: "#FFFFFF",
       },
     },
     customStyles: {
