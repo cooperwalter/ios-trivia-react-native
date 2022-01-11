@@ -10,7 +10,6 @@ import {
   nextQuestionRequested,
 } from "./questionsSlice";
 import AnswerButton from "./AnswerButton";
-import Button from "../../common/Button";
 import ActionButton from "../../common/ActionButton";
 import Text from "../../common/Text";
 
