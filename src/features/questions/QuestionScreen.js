@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { LayoutAnimation, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { styles as s } from "react-native-style-tachyons";
 import Screen from "../../common/Screen";
@@ -18,8 +18,12 @@ function QuestionScreen() {
   const isAnswered = useSelector(selectIsAnswered);
   const dispatch = useDispatch();
   const { prompt, answers } = currentQuestion;
-  const onSelect = (selectedIndex) => () =>
+  const onSelect = (selectedIndex) => () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(750, "easeInEaseOut", "opacity")
+    );
     dispatch(questionAnswered(selectedIndex));
+  };
 
   const onNext = () => dispatch(nextQuestionRequested());
   return (

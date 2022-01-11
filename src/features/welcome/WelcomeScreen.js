@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { LayoutAnimation, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { Icon } from "react-native-elements";
 import { styles as s } from "react-native-style-tachyons";
@@ -12,7 +12,12 @@ const logo = require("../../../assets/logo/logo_transparent_background.png");
 
 const WelcomeScreen = () => {
   const dispatch = useDispatch();
-  const onStart = () => dispatch(quizStarted());
+  const onStart = () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(750, "easeInEaseOut", "opacity")
+    );
+    dispatch(quizStarted());
+  };
   return (
     <Screen style={[s.w100p, s.aic, s.pa4]}>
       <View style={[s.w100p]}>

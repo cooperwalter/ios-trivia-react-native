@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet, UIManager } from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import NativeTachyons from "react-native-style-tachyons";
@@ -21,6 +21,12 @@ import AppLoading from "expo-app-loading";
 import _ from "lodash";
 import store from "./src/store";
 import AppNavigator from "./src/Nav";
+
+if (Platform.OS === "android") {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 const buildWidthStyles = () => {
   return _.range(0, 101).reduce(
