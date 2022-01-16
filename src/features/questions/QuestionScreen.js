@@ -6,6 +6,7 @@ import Screen from "../../common/Screen";
 import {
   selectCurrentQuestion,
   selectIsAnswered,
+  selectedAnsweredById,
   questionAnswered,
   nextQuestionRequested,
 } from "./questionsSlice";
@@ -13,9 +14,20 @@ import AnswerButton from "./AnswerButton";
 import ActionButton from "../../common/ActionButton";
 import Text from "../../common/Text";
 
+const getButtonState = (index, answeredIndex, correctIndex) => {
+  if (index === correctIndex) {
+    return "correct";
+  } else if (index === answeredIndex) {
+    return "incorrect";
+  }
+
+  return "";
+};
+
 function QuestionScreen() {
   const currentQuestion = useSelector(selectCurrentQuestion);
   const isAnswered = useSelector(selectIsAnswered);
+  const answered = useSelector(selectedAnsweredById);
   const dispatch = useDispatch();
   const { prompt, answers } = currentQuestion;
   const onSelect = (selectedIndex) => () => {
@@ -38,6 +50,15 @@ function QuestionScreen() {
               title={text}
               key={text}
               onPress={onSelect(index)}
+              state={
+                !isAnswered
+                  ? ""
+                  : getButtonState(
+                      index,
+                      answered[currentQuestion.id].answeredIndex,
+                      currentQuestion.correctIndex
+                    )
+              }
               disabled={isAnswered}
             />
           ))}

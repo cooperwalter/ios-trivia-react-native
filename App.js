@@ -76,13 +76,13 @@ NativeTachyons.build(
       palette: {
         near_white: "#fffdfc",
         white: "#ffffff",
-        blue: "rgb(0,122,255)",
-        green: "rgb(52,199,89)",
         background: "#F1F0EA",
         primary: "#2D232E",
         secondary: "#958B5F",
         text: "#474448",
         textAlternate: "#FFFFFF",
+        error: "#ef5350",
+        success: "#4caf50",
       },
     },
     customStyles: {

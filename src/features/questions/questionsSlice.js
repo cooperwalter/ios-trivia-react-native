@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   },
   currentQuestionId: questionsData[0].id,
   answered: {
+    byId: {},
     correctIds: [],
     allIds: [],
   },
@@ -29,6 +30,10 @@ const questionsSlice = createSlice({
       const { currentQuestionId, questions, answered } = state;
       const currentQuestion = questions.byId[currentQuestionId];
 
+      answered.byId[currentQuestionId] = {
+        id: currentQuestionId,
+        answeredIndex: selectedIndex,
+      };
       answered.allIds.push(currentQuestionId);
       if (selectedIndex === currentQuestion.correctIndex) {
         answered.correctIds.push(currentQuestionId);
@@ -65,6 +70,10 @@ export const selectCurrentQuestion = createSelector(
 export const selectIsAnswered = createSelector(
   [selectAnswered, selectCurrentQuestionId],
   (answered, currentQuestionId) => answered.allIds.includes(currentQuestionId)
+);
+export const selectedAnsweredById = createSelector(
+  [selectAnswered],
+  (answered) => answered.byId
 );
 export const selectStarted = createSelector(
   [selectQuestionsState],
