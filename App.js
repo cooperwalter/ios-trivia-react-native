@@ -2,6 +2,7 @@ import { Platform, StyleSheet, UIManager } from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import NativeTachyons from "react-native-style-tachyons";
+import * as R from "ramda";
 import {
   useFonts,
   PlayfairDisplay_400Regular,
@@ -62,11 +63,18 @@ const buildFontFamilyStyles = () => {
     "900Black_Italic",
   ];
   return typefaces.reduce(
-    (styles, typeface) => ({
-      ...styles,
-      [`font${typeface}`]: { fontFamily: `${FONT_FAMILY}_${typeface}` },
-    }),
-    {}
+    (styles, typeface) => (
+      {
+        ...styles,
+        // with weight number
+        [`font${typeface}`]: { fontFamily: `${FONT_FAMILY}_${typeface}` },
+        // without weight number, lowercased
+        [`${R.pipe((string) => string.slice(3), R.toLower)(typeface)}`]: {
+          fontFamily: `${FONT_FAMILY}_${typeface}`,
+        },
+      },
+      {}
+    )
   );
 };
 
