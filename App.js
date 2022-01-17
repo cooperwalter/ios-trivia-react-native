@@ -80,6 +80,7 @@ const buildFontFamilyStyles = () => {
 
 NativeTachyons.build(
   {
+    rem: 12,
     colors: {
       palette: {
         near_white: "#fffdfc",

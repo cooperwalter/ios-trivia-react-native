@@ -12,6 +12,8 @@ import {
 } from "./questionsSlice";
 import AnswerButton from "./AnswerButton";
 import ActionButton from "../../common/ActionButton";
+import Description from "./Description";
+import Sources from "./Sources";
 import Text from "../../common/Text";
 
 const getButtonState = (index, answeredIndex, correctIndex) => {
@@ -29,7 +31,12 @@ function QuestionScreen() {
   const isAnswered = useSelector(selectIsAnswered);
   const answered = useSelector(selectedAnsweredById);
   const dispatch = useDispatch();
-  const { prompt, answers } = currentQuestion;
+
+  const {
+    prompt,
+    answers,
+    details: { description, sources },
+  } = currentQuestion;
   const onSelect = (selectedIndex) => () => {
     LayoutAnimation.configureNext(
       LayoutAnimation.create(750, "easeInEaseOut", "opacity")
@@ -62,6 +69,14 @@ function QuestionScreen() {
               disabled={isAnswered}
             />
           ))}
+        </View>
+        <View style={[s.aifs, s.w100p, s.ph2]}>
+          {isAnswered ? (
+            <>
+              <Description style={[s.mb3]}>{description}</Description>
+              <Sources sources={sources} />
+            </>
+          ) : null}
         </View>
         <ActionButton
           title="Next"
