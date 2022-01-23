@@ -19,9 +19,17 @@ import {
   PlayfairDisplay_900Black_Italic,
 } from "@expo-google-fonts/playfair-display";
 import AppLoading from "expo-app-loading";
+import { connectToDevTools } from "react-devtools-core";
 import _ from "lodash";
 import store from "./src/store";
 import AppNavigator from "./src/Nav";
+
+if (__DEV__) {
+  connectToDevTools({
+    host: "localhost",
+    port: 8097,
+  });
+}
 
 if (Platform.OS === "android") {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
