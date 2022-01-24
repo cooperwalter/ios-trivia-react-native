@@ -344,11 +344,11 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cooperawalter.ios-trivia-react-native";
-				PRODUCT_NAME = "iostriviareactnative";
+				PRODUCT_NAME = iostriviareactnative;
 				SWIFT_OBJC_BRIDGING_HEADER = "iostriviareactnative/iostriviareactnative-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -370,10 +370,10 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cooperawalter.ios-trivia-react-native";
-				PRODUCT_NAME = "iostriviareactnative";
+				PRODUCT_NAME = iostriviareactnative;
 				SWIFT_OBJC_BRIDGING_HEADER = "iostriviareactnative/iostriviareactnative-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

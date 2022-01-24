@@ -95,6 +95,7 @@ NativeTachyons.build(
         white: "#ffffff",
         background: "#F1F0EA",
         primary: "#2D232E",
+        primaryLight: "rgba(71, 68, 72,0.7)",
         secondary: "#958B5F",
         text: "#474448",
         textAlternate: "#FFFFFF",

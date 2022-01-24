@@ -75,6 +75,14 @@ export const selectedAnsweredById = createSelector(
   [selectAnswered],
   (answered) => answered.byId
 );
+export const selectedAnsweredAllIds = createSelector(
+  [selectAnswered],
+  (answered) => answered.allIds
+);
+export const selectedAnsweredCorrectIds = createSelector(
+  [selectAnswered],
+  (answered) => answered.correctIds
+);
 export const selectStarted = createSelector(
   [selectQuestionsState],
   (state) => state.started
