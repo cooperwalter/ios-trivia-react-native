@@ -1,4 +1,4 @@
-import { Easing, View } from "react-native";
+import { Easing, LayoutAnimation, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { styles as s, sizes } from "react-native-style-tachyons";
@@ -14,7 +14,7 @@ import React from "react";
 
 const OutOfQuestionsScreen = () => {
   const dispatch = useDispatch();
-  const onRestart = () => dispatch(restart());
+
   const numAnswered = useSelector(selectedAnsweredAllIds).length;
   const numCorrect = useSelector(selectedAnsweredCorrectIds).length;
   const percentCorrect = Math.round((numCorrect / numAnswered) * 100);
@@ -29,6 +29,13 @@ const OutOfQuestionsScreen = () => {
 
     return () => clearTimeout(timeoutId);
   }, [percentCorrect]);
+
+  const onRestart = () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(750, "easeInEaseOut", "opacity")
+    );
+    dispatch(restart());
+  };
 
   return (
     <Screen style={[s.jcsa, s.w100p, s.aic, s.pa4]}>
