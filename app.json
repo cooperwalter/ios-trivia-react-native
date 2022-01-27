@@ -13,12 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "com.cooperawalter.ios-trivia-react-native"
+      "supportsTablet": false
     },
     "android": {
       "adaptiveIcon": {
@@ -30,8 +27,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-community-flipper"
-    ]
+    "plugins": ["expo-community-flipper"]
   }
 }
