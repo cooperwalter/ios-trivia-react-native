@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import NativeTachyons from "react-native-style-tachyons";
 import * as R from "ramda";
+import { colors } from "./src/theme";
 import {
   useFonts,
   PlayfairDisplay_400Regular,
@@ -91,16 +92,7 @@ NativeTachyons.build(
     rem: 12,
     colors: {
       palette: {
-        near_white: "#fffdfc",
-        white: "#ffffff",
-        background: "#F1F0EA",
-        primary: "#2D232E",
-        primaryLight: "rgba(71, 68, 72,0.7)",
-        secondary: "#958B5F",
-        text: "#474448",
-        textAlternate: "#FFFFFF",
-        error: "#ef5350",
-        success: "#4caf50",
+        ...colors,
       },
     },
     customStyles: {
